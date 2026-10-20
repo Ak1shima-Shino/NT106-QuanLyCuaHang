@@ -1,4 +1,5 @@
 # NT106-QuanLyCuaHang
+
 Đồ án NT106 - Ứng dụng quản lý cửa hàng
 
 ## Cấu trúc thư mục
@@ -16,22 +17,23 @@ NT106-QuanLyCuaHang/
 │   └── Helpers/                     # Hàm tiện ích
 │
 ├── backend/                         # Backend PHP / WordPress
-│   └── nt106-quan-ly-cua-hang/
-│       ├── nt106-quan-ly-cua-hang.php   # File chính của plugin
+│   └── retail-management/
+│       ├── retail-management.php    # File chính của plugin
+│       ├── README.md                # Tài liệu plugin
 │       └── includes/
-│           ├── routes/              # Khai báo REST API
-│           ├── controllers/         # Xử lý request, trả JSON
-│           ├── models/              # Truy vấn dữ liệu
-│           ├── database/            # Tạo/migrate bảng
-│           ├── middlewares/         # Auth, phân quyền
-│           └── helpers/             # Hàm PHP dùng chung
+│           ├── routes/             # Khai báo REST API
+│           ├── controllers/        # Xử lý request, trả JSON
+│           ├── models/             # Truy vấn dữ liệu
+│           ├── database/           # Tạo/migrate bảng
+│           ├── middlewares/        # Auth, phân quyền
+│           └── helpers/            # Hàm PHP dùng chung
 │
 ├── socket-server/                   # C# TCP Server
 │   └── Server/
-│       ├── Clients/                 # Quản lý client kết nối
-│       ├── Handlers/                # Xử lý message/event
-│       ├── Models/                  # Object message/event
-│       └── Services/                # Logic realtime
+│       ├── Clients/                # Quản lý client kết nối
+│       ├── Handlers/               # Xử lý message/event
+│       ├── Models/                 # Object message/event
+│       └── Services/               # Logic realtime
 │
 ├── database/                        # Thiết kế cơ sở dữ liệu
 │   ├── ERD/                         # Sơ đồ ERD
