@@ -17,8 +17,8 @@ NT106-QuanLyCuaHang/
 │   └── Helpers/                     # Hàm tiện ích
 │
 ├── backend/                         # Backend PHP / WordPress
-│   └── retail-management/
-│       ├── retail-management.php    # File chính của plugin
+│   └── retail-core/
+│       ├── retail-core.php          # File chính của plugin
 │       ├── README.md                # Tài liệu plugin
 │       └── includes/
 │           ├── routes/             # Khai báo REST API
