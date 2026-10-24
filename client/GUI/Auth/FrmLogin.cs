@@ -6,28 +6,26 @@ namespace RetailClient.GUI.Auth
 {
     public partial class FrmLogin : Form
     {
-        private readonly AuthService _authService =
-            new AuthService();
+        private readonly FirebaseAuthService _firebaseAuthService =
+            new FirebaseAuthService();
 
         public FrmLogin()
         {
             InitializeComponent();
+            Username.Text = "Email";
+            Text = "Firebase Login";
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
         }
 
-        private async void btnLogin_Click(
-            object sender,
-            EventArgs e)
+        private async void btnLogin_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtUsername.Text) ||
                 string.IsNullOrWhiteSpace(txtPassword.Text))
             {
-                MessageBox.Show(
-                    "Vui lòng nhập tên đăng nhập và mật khẩu."
-                );
+                MessageBox.Show("Vui lòng nhập email và mật khẩu.");
                 return;
             }
 
@@ -35,15 +33,12 @@ namespace RetailClient.GUI.Auth
 
             try
             {
-                var result = await _authService.LoginAsync(
+                await _firebaseAuthService.LoginAsync(
                     txtUsername.Text.Trim(),
                     txtPassword.Text
                 );
 
-                MessageBox.Show(
-                    "Đăng nhập thành công!\nUser ID: " +
-                    result.UserId
-                );
+                MessageBox.Show("Đăng nhập Firebase thành công!");
             }
             catch (Exception ex)
             {
