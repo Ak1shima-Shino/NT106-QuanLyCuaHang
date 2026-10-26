@@ -33,6 +33,8 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
+            this.lnkRegister = new System.Windows.Forms.Button();
+            this.lnkForgotPassword = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Username
@@ -82,12 +84,34 @@
             this.txtPassword.TabIndex = 5;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
+            // lnkRegister
+            // 
+            this.lnkRegister.Location = new System.Drawing.Point(301, 441);
+            this.lnkRegister.Name = "lnkRegister";
+            this.lnkRegister.Size = new System.Drawing.Size(113, 51);
+            this.lnkRegister.TabIndex = 6;
+            this.lnkRegister.Text = "Đăng ký tài khoản";
+            this.lnkRegister.UseVisualStyleBackColor = true;
+            this.lnkRegister.Click += new System.EventHandler(this.lnkRegister_Click);
+            // 
+            // lnkForgotPassword
+            // 
+            this.lnkForgotPassword.Location = new System.Drawing.Point(478, 441);
+            this.lnkForgotPassword.Name = "lnkForgotPassword";
+            this.lnkForgotPassword.Size = new System.Drawing.Size(119, 51);
+            this.lnkForgotPassword.TabIndex = 7;
+            this.lnkForgotPassword.Text = "Quên mật khẩu?";
+            this.lnkForgotPassword.UseVisualStyleBackColor = true;
+            this.lnkForgotPassword.Click += new System.EventHandler(this.lnkForgotPassword_Click);
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1033, 618);
+            this.Controls.Add(this.lnkForgotPassword);
+            this.Controls.Add(this.lnkRegister);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.btnLogin);
@@ -107,5 +131,7 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Button lnkRegister;
+        private System.Windows.Forms.Button lnkForgotPassword;
     }
 }

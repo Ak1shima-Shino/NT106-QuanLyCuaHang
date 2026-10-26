@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using RetailClient.DTO;
+using System;
+using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
-using RetailClient.DTO;
 
 namespace RetailClient.Services
 {
@@ -59,6 +61,83 @@ namespace RetailClient.Services
                 }
 
                 return result;
+            }
+        }
+        public async Task<MeResponse> GetMeAsync(
+    string accessToken)
+        {
+            var request =
+                new HttpRequestMessage(
+                    HttpMethod.Get,
+                    "me"
+                );
+
+            request.Headers.Authorization =
+                new AuthenticationHeaderValue(
+                    "Bearer",
+                    accessToken
+                );
+
+            using (var response =
+                await Http.SendAsync(request))
+            {
+                string body =
+                    await response.Content.ReadAsStringAsync();
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw new Exception(
+                        "Không lấy được thông tin người dùng."
+                    );
+                }
+
+                var result =
+                    JsonConvert.DeserializeObject<MeResponse>(body);
+
+                return result;
+            }
+        }
+
+        public async Task<MessageResponse> LogoutAsync(
+        string accessToken)
+        {
+            var request = new HttpRequestMessage(
+                HttpMethod.Post,
+                "logout"
+            );
+
+            request.Headers.Authorization =
+                new AuthenticationHeaderValue(
+                    "Bearer",
+                    accessToken
+                );
+
+            using (var response =
+                await Http.SendAsync(request))
+            {
+                string body =
+                    await response.Content.ReadAsStringAsync();
+
+                if (response.StatusCode ==
+                    HttpStatusCode.Unauthorized)
+                {
+                    return new MessageResponse
+                    {
+                        Success = true,
+                        Message = "Token đã hết hạn."
+                    };
+                }
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw new Exception(
+                        "Đăng xuất thất bại."
+                    );
+                }
+
+                return JsonConvert.DeserializeObject<MessageResponse>(
+                    body
+                );
             }
         }
     }
