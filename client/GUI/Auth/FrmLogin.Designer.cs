@@ -1,4 +1,4 @@
-﻿namespace RetailClient.GUI.Auth
+namespace RetailClient.GUI.Auth
 {
     partial class FrmLogin
     {
