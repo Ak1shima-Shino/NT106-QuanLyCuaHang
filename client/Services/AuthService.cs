@@ -16,7 +16,7 @@ namespace RetailClient.Services
             )
         };
 
-        // ── Login (Mẫu ban đầu) ──────────────────────────────
+        // Login
         public async Task<LoginResponse> LoginAsync(
             string username,
             string password)
@@ -63,7 +63,7 @@ namespace RetailClient.Services
             }
         }
 
-        // ── Register (Task 3.2 - Tỷ) ──────────────────────────
+        // Register
         public async Task<RegisterResponse> RegisterAsync(
             RegisterRequest request)
         {
@@ -102,7 +102,7 @@ namespace RetailClient.Services
             }
         }
 
-        // ── Forgot Password (Task 3.4 - Tỷ) ──────────────────
+        // Forgot Password
         public async Task<MessageResponse> ForgotPasswordAsync(
             ForgotPasswordRequest request)
         {
@@ -142,7 +142,7 @@ namespace RetailClient.Services
             }
         }
 
-        // ── Reset Password (Task 3.5 - Tỷ) ───────────────────
+        // Reset Password
         public async Task<MessageResponse> ResetPasswordAsync(
             ResetPasswordRequest request)
         {

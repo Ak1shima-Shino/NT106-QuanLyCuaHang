@@ -24,7 +24,7 @@ namespace RetailClient.GUI.Auth
             string newPassword = txtNewPassword.Text;
             string confirmPassword = txtConfirmPassword.Text;
 
-            // --- Validate ---
+            // Validate input
             if (string.IsNullOrWhiteSpace(username) ||
                 string.IsNullOrWhiteSpace(resetKey) ||
                 string.IsNullOrWhiteSpace(newPassword) ||
@@ -72,7 +72,7 @@ namespace RetailClient.GUI.Auth
                 var result =
                     await _authService.ResetPasswordAsync(request);
 
-                // Xóa các ô nhạy cảm
+                // Clear sensitive fields
                 txtResetKey.Text = "";
                 txtNewPassword.Text = "";
                 txtConfirmPassword.Text = "";

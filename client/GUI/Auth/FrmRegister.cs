@@ -20,7 +20,7 @@ namespace RetailClient.GUI.Auth
             object sender,
             EventArgs e)
         {
-            // --- Validate đầu vào ---
+            // Validate input
             string username = txtUsername.Text.Trim();
             string email = txtEmail.Text.Trim();
             string password = txtPassword.Text;
@@ -39,7 +39,7 @@ namespace RetailClient.GUI.Auth
                 return;
             }
 
-            // Kiểm tra định dạng email đơn giản
+            // Validate email format
             if (!Regex.IsMatch(email,
                 @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
             {
