@@ -40,35 +40,39 @@
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(58, 40);
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.Location = new System.Drawing.Point(157, 98);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(70, 16);
+            this.lblUsername.Size = new System.Drawing.Size(144, 32);
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Username";
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(58, 109);
+            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.Location = new System.Drawing.Point(157, 246);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(41, 16);
+            this.lblEmail.Size = new System.Drawing.Size(86, 32);
             this.lblEmail.TabIndex = 1;
             this.lblEmail.Text = "Email";
             // 
             // lblRoles
             // 
             this.lblRoles.AutoSize = true;
-            this.lblRoles.Location = new System.Drawing.Point(58, 189);
+            this.lblRoles.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRoles.Location = new System.Drawing.Point(157, 399);
             this.lblRoles.Name = "lblRoles";
-            this.lblRoles.Size = new System.Drawing.Size(43, 16);
+            this.lblRoles.Size = new System.Drawing.Size(87, 32);
             this.lblRoles.TabIndex = 2;
             this.lblRoles.Text = "Roles";
             // 
             // btnRefreshMe
             // 
-            this.btnRefreshMe.Location = new System.Drawing.Point(483, 28);
+            this.btnRefreshMe.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefreshMe.Location = new System.Drawing.Point(543, 132);
             this.btnRefreshMe.Name = "btnRefreshMe";
-            this.btnRefreshMe.Size = new System.Drawing.Size(57, 27);
+            this.btnRefreshMe.Size = new System.Drawing.Size(197, 71);
             this.btnRefreshMe.TabIndex = 3;
             this.btnRefreshMe.Text = "Refresh";
             this.btnRefreshMe.UseVisualStyleBackColor = true;
@@ -76,9 +80,10 @@
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(484, 175);
+            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.Location = new System.Drawing.Point(549, 313);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(56, 30);
+            this.btnLogout.Size = new System.Drawing.Size(191, 75);
             this.btnLogout.TabIndex = 4;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
@@ -92,7 +97,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(975, 578);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnRefreshMe);
             this.Controls.Add(this.lblRoles);

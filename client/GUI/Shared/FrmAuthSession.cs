@@ -8,6 +8,7 @@ namespace RetailClient.GUI.Shared
 {
     public partial class FrmAuthSession : Form
     {
+        private bool _returningToLogin = false;
         public FrmAuthSession()
         {
             InitializeComponent();
@@ -16,11 +17,9 @@ namespace RetailClient.GUI.Shared
 
         private void LoadUser()
         {
-            lblUsername.Text =
-                SessionManager.CurrentUser.Username;
+            lblUsername.Text = SessionManager.CurrentUser.Username;
 
-            lblEmail.Text =
-                SessionManager.CurrentUser.Email;
+            lblEmail.Text = SessionManager.CurrentUser.Email;
 
             lblRoles.Text =
                 string.Join(
@@ -35,8 +34,7 @@ namespace RetailClient.GUI.Shared
             {
                 var authService = new AuthService();
 
-                var me = await authService.GetMeAsync(SessionManager.AccessToken
-                );
+                var me = await authService.GetMeAsync(SessionManager.AccessToken);
 
                 SessionManager.UpdateUser(me.User);
 
@@ -54,6 +52,7 @@ namespace RetailClient.GUI.Shared
                 );
 
                 FrmLogin login = new FrmLogin();
+                _returningToLogin = true;
                 login.Show();
 
                 this.Close();
@@ -69,22 +68,18 @@ namespace RetailClient.GUI.Shared
             }
         }
 
-        private async void btnLogout_Click(
-    object sender,
-    EventArgs e)
+        private async void btnLogout_Click(object sender, EventArgs e)
         {
             try
             {
                 var authService = new AuthService();
 
-                await authService.LogoutAsync(
-                    SessionManager.AccessToken
-                );
+                await authService.LogoutAsync(SessionManager.AccessToken);
 
                 SessionManager.Clear();
 
                 FrmLogin login = new FrmLogin();
-
+                _returningToLogin = true;
                 login.Show();
 
                 this.Close();
@@ -103,9 +98,8 @@ namespace RetailClient.GUI.Shared
                 {
                     SessionManager.Clear();
 
-                    FrmLogin login =
-                        new FrmLogin();
-
+                    FrmLogin login = new FrmLogin();
+                    _returningToLogin = true;
                     login.Show();
 
                     this.Close();
@@ -115,7 +109,10 @@ namespace RetailClient.GUI.Shared
 
         private void FrmAuthSession_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            if (!_returningToLogin)
+            {
+                Application.Exit();
+            }
         }
     }
 }

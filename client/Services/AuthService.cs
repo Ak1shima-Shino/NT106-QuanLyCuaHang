@@ -63,26 +63,28 @@ namespace RetailClient.Services
                 return result;
             }
         }
-        public async Task<MeResponse> GetMeAsync(
-    string accessToken)
+        public async Task<MeResponse> GetMeAsync(string accessToken)
         {
-            var request =
-                new HttpRequestMessage(
+            var request = new HttpRequestMessage(
                     HttpMethod.Get,
                     "me"
-                );
+             );
 
-            request.Headers.Authorization =
-                new AuthenticationHeaderValue(
+            request.Headers.Authorization = new AuthenticationHeaderValue(
                     "Bearer",
                     accessToken
-                );
+             );
 
-            using (var response =
-                await Http.SendAsync(request))
+            using (var response = await Http.SendAsync(request))
             {
-                string body =
-                    await response.Content.ReadAsStringAsync();
+                string body = await response.Content.ReadAsStringAsync();
+
+                if (response.StatusCode == HttpStatusCode.Unauthorized)
+                {
+                    throw new UnauthorizedAccessException(
+                        "Phiên đăng nhập không còn hợp lệ."
+                    );
+                }
 
                 if (!response.IsSuccessStatusCode)
                 {
@@ -91,8 +93,7 @@ namespace RetailClient.Services
                     );
                 }
 
-                var result =
-                    JsonConvert.DeserializeObject<MeResponse>(body);
+                var result = JsonConvert.DeserializeObject<MeResponse>(body);
 
                 return result;
             }
@@ -101,28 +102,19 @@ namespace RetailClient.Services
         public async Task<MessageResponse> LogoutAsync(
         string accessToken)
         {
-            var request = new HttpRequestMessage(
-                HttpMethod.Post,
-                "logout"
-            );
+            var request = new HttpRequestMessage(HttpMethod.Post,"logout");
 
             request.Headers.Authorization =
-                new AuthenticationHeaderValue(
-                    "Bearer",
-                    accessToken
-                );
+                new AuthenticationHeaderValue("Bearer", accessToken);
 
-            using (var response =
-                await Http.SendAsync(request))
+            using (var response = await Http.SendAsync(request))
             {
-                string body =
-                    await response.Content.ReadAsStringAsync();
+                string body = await response.Content.ReadAsStringAsync();
 
-                if (response.StatusCode ==
-                    HttpStatusCode.Unauthorized)
+                if (response.StatusCode == HttpStatusCode.Unauthorized)
                 {
                     return new MessageResponse
-                    {
+                    {   
                         Success = true,
                         Message = "Token đã hết hạn."
                     };
@@ -130,14 +122,10 @@ namespace RetailClient.Services
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw new Exception(
-                        "Đăng xuất thất bại."
-                    );
+                    throw new Exception("Đăng xuất thất bại.");
                 }
 
-                return JsonConvert.DeserializeObject<MessageResponse>(
-                    body
-                );
+                return JsonConvert.DeserializeObject<MessageResponse>(body);
             }
         }
     }

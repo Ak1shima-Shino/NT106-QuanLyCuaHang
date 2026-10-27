@@ -20,9 +20,7 @@ namespace RetailClient.GUI.Auth
         {
         }
 
-        private async void btnLogin_Click(
-            object sender,
-            EventArgs e)
+        private async void btnLogin_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtUsername.Text) ||
                 string.IsNullOrWhiteSpace(txtPassword.Text))
@@ -46,14 +44,14 @@ namespace RetailClient.GUI.Auth
                     "Đăng nhập thành công!\nUser ID: " +
                     result.UserId
                 );
-                var me = await _authService.GetMeAsync(
-                    result.AccessToken
-    );
+                var me = await _authService.GetMeAsync(result.AccessToken);
+
                 SessionManager.SaveSession(
                     result.AccessToken,
                     me.User,
                     result.ExpiresIn
-            );
+                );
+
                 FrmAuthSession frm =new FrmAuthSession();
 
                 frm.Show();
@@ -88,6 +86,11 @@ namespace RetailClient.GUI.Auth
             //FrmForgotPassword frm = new FrmForgotPassword();
 
             //frm.Show();
+        }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

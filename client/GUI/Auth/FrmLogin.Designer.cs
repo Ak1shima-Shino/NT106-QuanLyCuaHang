@@ -40,7 +40,7 @@
             // Username
             // 
             this.Username.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Username.Location = new System.Drawing.Point(309, 158);
+            this.Username.Location = new System.Drawing.Point(257, 144);
             this.Username.Name = "Username";
             this.Username.Size = new System.Drawing.Size(155, 43);
             this.Username.TabIndex = 0;
@@ -50,7 +50,7 @@
             // Password
             // 
             this.Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Password.Location = new System.Drawing.Point(309, 251);
+            this.Password.Location = new System.Drawing.Point(257, 246);
             this.Password.Name = "Password";
             this.Password.Size = new System.Drawing.Size(145, 43);
             this.Password.TabIndex = 1;
@@ -59,7 +59,7 @@
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(390, 352);
+            this.btnLogin.Location = new System.Drawing.Point(390, 345);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(207, 51);
             this.btnLogin.TabIndex = 3;
@@ -70,25 +70,26 @@
             // txtUsername
             // 
             this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(520, 158);
+            this.txtUsername.Location = new System.Drawing.Point(486, 144);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(234, 38);
+            this.txtUsername.Size = new System.Drawing.Size(296, 38);
             this.txtUsername.TabIndex = 4;
             // 
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(521, 251);
+            this.txtPassword.Location = new System.Drawing.Point(486, 251);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(233, 38);
+            this.txtPassword.Size = new System.Drawing.Size(296, 38);
             this.txtPassword.TabIndex = 5;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // lnkRegister
             // 
-            this.lnkRegister.Location = new System.Drawing.Point(301, 441);
+            this.lnkRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkRegister.Location = new System.Drawing.Point(202, 437);
             this.lnkRegister.Name = "lnkRegister";
-            this.lnkRegister.Size = new System.Drawing.Size(113, 51);
+            this.lnkRegister.Size = new System.Drawing.Size(262, 51);
             this.lnkRegister.TabIndex = 6;
             this.lnkRegister.Text = "Đăng ký tài khoản";
             this.lnkRegister.UseVisualStyleBackColor = true;
@@ -96,9 +97,10 @@
             // 
             // lnkForgotPassword
             // 
-            this.lnkForgotPassword.Location = new System.Drawing.Point(478, 441);
+            this.lnkForgotPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkForgotPassword.Location = new System.Drawing.Point(550, 437);
             this.lnkForgotPassword.Name = "lnkForgotPassword";
-            this.lnkForgotPassword.Size = new System.Drawing.Size(119, 51);
+            this.lnkForgotPassword.Size = new System.Drawing.Size(251, 51);
             this.lnkForgotPassword.TabIndex = 7;
             this.lnkForgotPassword.Text = "Quên mật khẩu?";
             this.lnkForgotPassword.UseVisualStyleBackColor = true;
@@ -119,6 +121,7 @@
             this.Controls.Add(this.Username);
             this.Name = "FrmLogin";
             this.Text = "FrmLogin";
+            this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
