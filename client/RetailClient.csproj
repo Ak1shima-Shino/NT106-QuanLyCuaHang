@@ -53,15 +53,18 @@
   <ItemGroup>
     <!-- DTO -->
     <Compile Include="DTO\ApiErrorResponse.cs" />
+    <Compile Include="DTO\ForgotPasswordRequest.cs" />
     <Compile Include="DTO\LoginRequest.cs" />
     <Compile Include="DTO\LoginResponse.cs" />
-
-    <!-- newDTO -->
+    <Compile Include="DTO\MeResponse.cs" />
     <Compile Include="DTO\MessageResponse.cs" />
     <Compile Include="DTO\RegisterRequest.cs" />
     <Compile Include="DTO\RegisterResponse.cs" />
-    <Compile Include="DTO\ForgotPasswordRequest.cs" />
     <Compile Include="DTO\ResetPasswordRequest.cs" />
+    <Compile Include="DTO\UserDto.cs" />
+
+    <!-- Helpers -->
+    <Compile Include="Helpers\SessionManager.cs" />
 
     <!-- Services -->
     <Compile Include="Services\AuthService.cs" />
@@ -106,7 +109,15 @@
       <DependentUpon>FrmResetPassword.cs</DependentUpon>
     </Compile>
 
-    <!-- ── Program & Properties ── -->
+    <!-- Shared Session Form -->
+    <Compile Include="GUI\Shared\FrmAuthSession.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Shared\FrmAuthSession.Designer.cs">
+      <DependentUpon>FrmAuthSession.cs</DependentUpon>
+    </Compile>
+
+    <!-- Program & Properties -->
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -119,7 +130,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
 
-    <!-- ── Embedded Resources ── -->
+    <!-- Embedded Resources -->
     <EmbeddedResource Include="GUI\Auth\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,13 +143,16 @@
     <EmbeddedResource Include="GUI\Auth\FrmResetPassword.resx">
       <DependentUpon>FrmResetPassword.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Shared\FrmAuthSession.resx">
+      <DependentUpon>FrmAuthSession.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
 
-    <!-- ── Other ── -->
+    <!-- Other -->
     <None Include="GUI\BackOffice\.gitkeep" />
     <None Include="GUI\FrontOffice\.gitkeep" />
     <None Include="GUI\Shared\.gitkeep" />

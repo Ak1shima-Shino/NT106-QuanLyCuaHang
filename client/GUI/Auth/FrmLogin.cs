@@ -1,6 +1,8 @@
 using System;
 using System.Windows.Forms;
 using RetailClient.Services;
+using RetailClient.Helpers;
+using RetailClient.GUI.Shared;
 
 namespace RetailClient.GUI.Auth
 {
@@ -18,9 +20,7 @@ namespace RetailClient.GUI.Auth
         {
         }
 
-        private async void btnLogin_Click(
-            object sender,
-            EventArgs e)
+        private async void btnLogin_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtUsername.Text) ||
                 string.IsNullOrWhiteSpace(txtPassword.Text))
@@ -44,6 +44,21 @@ namespace RetailClient.GUI.Auth
                     "Đăng nhập thành công!\nUser ID: " +
                     result.UserId
                 );
+
+                var me = await _authService.GetMeAsync(result.AccessToken);
+
+                SessionManager.SaveSession(
+                    result.AccessToken,
+                    me.User,
+                    result.ExpiresIn
+                );
+
+                txtPassword.Text = "";
+
+                FrmAuthSession frm = new FrmAuthSession();
+                frm.Show();
+
+                this.Hide();
             }
             catch (Exception ex)
             {
@@ -57,6 +72,26 @@ namespace RetailClient.GUI.Auth
             finally
             {
                 btnLogin.Enabled = true;
+            }
+        }
+
+        private void lnkRegister_Click(object sender, EventArgs e)
+        {
+            using (FrmRegister frm = new FrmRegister())
+            {
+                this.Hide();
+                frm.ShowDialog();
+                this.Show();
+            }
+        }
+
+        private void lnkForgotPassword_Click(object sender, EventArgs e)
+        {
+            using (FrmForgotPassword frm = new FrmForgotPassword())
+            {
+                this.Hide();
+                frm.ShowDialog();
+                this.Show();
             }
         }
     }

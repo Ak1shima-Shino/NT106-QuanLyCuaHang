@@ -33,12 +33,14 @@ namespace RetailClient.GUI.Auth
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
+            this.lnkRegister = new System.Windows.Forms.Button();
+            this.lnkForgotPassword = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Username
             // 
             this.Username.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Username.Location = new System.Drawing.Point(309, 158);
+            this.Username.Location = new System.Drawing.Point(257, 144);
             this.Username.Name = "Username";
             this.Username.Size = new System.Drawing.Size(155, 43);
             this.Username.TabIndex = 0;
@@ -48,7 +50,7 @@ namespace RetailClient.GUI.Auth
             // Password
             // 
             this.Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Password.Location = new System.Drawing.Point(309, 251);
+            this.Password.Location = new System.Drawing.Point(257, 246);
             this.Password.Name = "Password";
             this.Password.Size = new System.Drawing.Size(145, 43);
             this.Password.TabIndex = 1;
@@ -57,7 +59,7 @@ namespace RetailClient.GUI.Auth
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(390, 352);
+            this.btnLogin.Location = new System.Drawing.Point(390, 345);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(207, 51);
             this.btnLogin.TabIndex = 3;
@@ -68,19 +70,41 @@ namespace RetailClient.GUI.Auth
             // txtUsername
             // 
             this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(520, 158);
+            this.txtUsername.Location = new System.Drawing.Point(486, 144);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(234, 38);
+            this.txtUsername.Size = new System.Drawing.Size(296, 38);
             this.txtUsername.TabIndex = 4;
             // 
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(521, 251);
+            this.txtPassword.Location = new System.Drawing.Point(486, 251);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(233, 38);
+            this.txtPassword.Size = new System.Drawing.Size(296, 38);
             this.txtPassword.TabIndex = 5;
             this.txtPassword.UseSystemPasswordChar = true;
+            // 
+            // lnkRegister
+            // 
+            this.lnkRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkRegister.Location = new System.Drawing.Point(202, 437);
+            this.lnkRegister.Name = "lnkRegister";
+            this.lnkRegister.Size = new System.Drawing.Size(262, 51);
+            this.lnkRegister.TabIndex = 6;
+            this.lnkRegister.Text = "Đăng ký tài khoản";
+            this.lnkRegister.UseVisualStyleBackColor = true;
+            this.lnkRegister.Click += new System.EventHandler(this.lnkRegister_Click);
+            // 
+            // lnkForgotPassword
+            // 
+            this.lnkForgotPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkForgotPassword.Location = new System.Drawing.Point(550, 437);
+            this.lnkForgotPassword.Name = "lnkForgotPassword";
+            this.lnkForgotPassword.Size = new System.Drawing.Size(251, 51);
+            this.lnkForgotPassword.TabIndex = 7;
+            this.lnkForgotPassword.Text = "Quên mật khẩu?";
+            this.lnkForgotPassword.UseVisualStyleBackColor = true;
+            this.lnkForgotPassword.Click += new System.EventHandler(this.lnkForgotPassword_Click);
             // 
             // FrmLogin
             // 
@@ -88,13 +112,16 @@ namespace RetailClient.GUI.Auth
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1033, 618);
+            this.Controls.Add(this.lnkForgotPassword);
+            this.Controls.Add(this.lnkRegister);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.Password);
             this.Controls.Add(this.Username);
             this.Name = "FrmLogin";
-            this.Text = "FrmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Đăng Nhập";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -107,5 +134,7 @@ namespace RetailClient.GUI.Auth
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Button lnkRegister;
+        private System.Windows.Forms.Button lnkForgotPassword;
     }
 }
