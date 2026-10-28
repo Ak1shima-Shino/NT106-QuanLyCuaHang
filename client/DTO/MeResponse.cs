@@ -1,10 +1,13 @@
 using Newtonsoft.Json;
 
-public class MeResponse
+namespace RetailClient.DTO
 {
-    [JsonProperty("success")]
-    public bool Success { get; set; }
+    public class MeResponse
+    {
+        [JsonProperty("success")]
+        public bool Success { get; set; }
 
-    [JsonProperty("user")]
-    public UserDto User { get; set; }
+        [JsonProperty("user")]
+        public UserDto User { get; set; }
+    }
 }

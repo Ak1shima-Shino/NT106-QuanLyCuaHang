@@ -1,4 +1,4 @@
-﻿using RetailClient.GUI.Auth;
+using RetailClient.GUI.Auth;
 using RetailClient.Helpers;
 using RetailClient.Services;
 using System;
@@ -9,6 +9,7 @@ namespace RetailClient.GUI.Shared
     public partial class FrmAuthSession : Form
     {
         private bool _returningToLogin = false;
+
         public FrmAuthSession()
         {
             InitializeComponent();
@@ -17,18 +18,15 @@ namespace RetailClient.GUI.Shared
 
         private void LoadUser()
         {
-            lblUsername.Text = SessionManager.CurrentUser.Username;
-
-            lblEmail.Text = SessionManager.CurrentUser.Email;
-
-            lblRoles.Text =
-                string.Join(
-                    ", ",
-                    SessionManager.CurrentUser.Roles
-                );
+            if (SessionManager.CurrentUser != null)
+            {
+                lblUsername.Text = "Username: " + SessionManager.CurrentUser.Username;
+                lblEmail.Text = "Email: " + SessionManager.CurrentUser.Email;
+                lblRoles.Text = "Roles: " + string.Join(", ", SessionManager.CurrentUser.Roles ?? new System.Collections.Generic.List<string>());
+            }
         }
 
-        private async void btnRefreshMe_Click(object sender,EventArgs e)
+        private async void btnRefreshMe_Click(object sender, EventArgs e)
         {
             try
             {

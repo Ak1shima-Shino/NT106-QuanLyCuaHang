@@ -51,36 +51,97 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <!-- DTO -->
     <Compile Include="DTO\ApiErrorResponse.cs" />
+    <Compile Include="DTO\ForgotPasswordRequest.cs" />
     <Compile Include="DTO\LoginRequest.cs" />
     <Compile Include="DTO\LoginResponse.cs" />
     <Compile Include="DTO\MeResponse.cs" />
     <Compile Include="DTO\MessageResponse.cs" />
+    <Compile Include="DTO\RegisterRequest.cs" />
+    <Compile Include="DTO\RegisterResponse.cs" />
+    <Compile Include="DTO\ResetPasswordRequest.cs" />
     <Compile Include="DTO\UserDto.cs" />
+
+    <!-- Helpers -->
+    <Compile Include="Helpers\SessionManager.cs" />
+
+    <!-- Services -->
+    <Compile Include="Services\AuthService.cs" />
+
+    <!-- Form1 (legacy) -->
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+
+    <!-- Login Form -->
     <Compile Include="GUI\Auth\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Auth\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+
+    <!-- Register Form -->
+    <Compile Include="GUI\Auth\FrmRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Auth\FrmRegister.Designer.cs">
+      <DependentUpon>FrmRegister.cs</DependentUpon>
+    </Compile>
+
+    <!-- Forgot Password Form -->
+    <Compile Include="GUI\Auth\FrmForgotPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Auth\FrmForgotPassword.Designer.cs">
+      <DependentUpon>FrmForgotPassword.cs</DependentUpon>
+    </Compile>
+
+    <!-- Reset Password Form -->
+    <Compile Include="GUI\Auth\FrmResetPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Auth\FrmResetPassword.Designer.cs">
+      <DependentUpon>FrmResetPassword.cs</DependentUpon>
+    </Compile>
+
+    <!-- Shared Session Form -->
     <Compile Include="GUI\Shared\FrmAuthSession.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Shared\FrmAuthSession.Designer.cs">
       <DependentUpon>FrmAuthSession.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\SessionManager.cs" />
+
+    <!-- Program & Properties -->
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\AuthService.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+
+    <!-- Embedded Resources -->
     <EmbeddedResource Include="GUI\Auth\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Auth\FrmRegister.resx">
+      <DependentUpon>FrmRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Auth\FrmForgotPassword.resx">
+      <DependentUpon>FrmForgotPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Auth\FrmResetPassword.resx">
+      <DependentUpon>FrmResetPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Shared\FrmAuthSession.resx">
       <DependentUpon>FrmAuthSession.cs</DependentUpon>
@@ -90,10 +151,8 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
+
+    <!-- Other -->
     <None Include="GUI\BackOffice\.gitkeep" />
     <None Include="GUI\FrontOffice\.gitkeep" />
     <None Include="GUI\Shared\.gitkeep" />
@@ -102,11 +161,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
     <None Include="Services\.gitkeep" />
   </ItemGroup>
   <ItemGroup>

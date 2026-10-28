@@ -1,4 +1,4 @@
-﻿namespace RetailClient.GUI.Auth
+namespace RetailClient.GUI.Auth
 {
     partial class FrmLogin
     {
@@ -120,8 +120,8 @@
             this.Controls.Add(this.Password);
             this.Controls.Add(this.Username);
             this.Name = "FrmLogin";
-            this.Text = "FrmLogin";
-            this.Load += new System.EventHandler(this.FrmLogin_Load);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Đăng Nhập";
             this.ResumeLayout(false);
             this.PerformLayout();
 

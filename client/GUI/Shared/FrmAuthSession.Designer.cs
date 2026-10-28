@@ -1,4 +1,4 @@
-﻿namespace RetailClient.GUI.Shared
+namespace RetailClient.GUI.Shared
 {
     partial class FrmAuthSession
     {
@@ -33,8 +33,6 @@
             this.lblRoles = new System.Windows.Forms.Label();
             this.btnRefreshMe = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.eventLog1 = new System.Diagnostics.EventLog();
-            ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblUsername
@@ -89,10 +87,6 @@
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // eventLog1
-            // 
-            this.eventLog1.SynchronizingObject = this;
-            // 
             // FrmAuthSession
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -104,9 +98,9 @@
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblUsername);
             this.Name = "FrmAuthSession";
-            this.Text = "FrmAuthSession";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Thông Tin Phiên Đăng Nhập";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmAuthSession_FormClosed);
-            ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,6 +113,5 @@
         private System.Windows.Forms.Label lblRoles;
         private System.Windows.Forms.Button btnRefreshMe;
         private System.Windows.Forms.Button btnLogout;
-        private System.Diagnostics.EventLog eventLog1;
     }
 }

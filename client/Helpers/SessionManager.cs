@@ -20,10 +20,12 @@ namespace RetailClient.Helpers
             CurrentUser = user;
             ExpiredAt = DateTime.Now.AddSeconds(expiresIn);
         }
+
         public static void UpdateUser(UserDto user)
         {
             CurrentUser = user;
         }
+
         public static void Clear()
         {
             AccessToken = null;
