@@ -38,10 +38,10 @@ namespace RetailClient.GUI.Auth
                 return;
             }
 
-            if (newPassword.Length < 8)
+            if (System.Text.Encoding.UTF8.GetByteCount(newPassword) < 8)
             {
                 MessageBox.Show(
-                    "Mật khẩu mới phải có ít nhất 8 ký tự.",
+                    "Mật khẩu mới phải có ít nhất 8 byte UTF-8.",
                     "Lỗi",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);

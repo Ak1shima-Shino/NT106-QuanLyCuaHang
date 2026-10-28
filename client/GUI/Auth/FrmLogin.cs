@@ -10,6 +10,18 @@ namespace RetailClient.GUI.Auth
     {
         private readonly AuthService _authService =
             new AuthService();
+        private bool _loginInProgress;
+        private bool _sessionOpened;
+
+        private bool CanNavigate => !_loginInProgress && !_sessionOpened &&
+            string.IsNullOrEmpty(SessionManager.AccessToken) && !IsDisposed && !Disposing;
+
+        private void UpdateAuthButtons()
+        {
+            btnLogin.Enabled = CanNavigate;
+            lnkRegister.Enabled = CanNavigate;
+            lnkForgotPassword.Enabled = CanNavigate;
+        }
 
         public FrmLogin()
         {
@@ -22,6 +34,8 @@ namespace RetailClient.GUI.Auth
 
         private async void btnLogin_Click(object sender, EventArgs e)
         {
+            if (!CanNavigate) return;
+
             if (string.IsNullOrWhiteSpace(txtUsername.Text) ||
                 string.IsNullOrWhiteSpace(txtPassword.Text))
             {
@@ -31,7 +45,8 @@ namespace RetailClient.GUI.Auth
                 return;
             }
 
-            btnLogin.Enabled = false;
+            _loginInProgress = true;
+            UpdateAuthButtons();
 
             try
             {
@@ -40,12 +55,9 @@ namespace RetailClient.GUI.Auth
                     txtPassword.Text
                 );
 
-                MessageBox.Show(
-                    "Đăng nhập thành công!\nUser ID: " +
-                    result.UserId
-                );
-
+                if (IsDisposed || Disposing) return;
                 var me = await _authService.GetMeAsync(result.AccessToken);
+                if (IsDisposed || Disposing) return;
 
                 SessionManager.SaveSession(
                     result.AccessToken,
@@ -57,11 +69,15 @@ namespace RetailClient.GUI.Auth
 
                 FrmAuthSession frm = new FrmAuthSession();
                 frm.Show();
+                _sessionOpened = true;
 
                 this.Hide();
             }
+
             catch (Exception ex)
             {
+                SessionManager.Clear();
+                if (IsDisposed || Disposing) return;
                 MessageBox.Show(
                     ex.Message,
                     "Đăng nhập thất bại",
@@ -71,27 +87,40 @@ namespace RetailClient.GUI.Auth
             }
             finally
             {
-                btnLogin.Enabled = true;
+                _loginInProgress = false;
+                if (!IsDisposed && !Disposing) UpdateAuthButtons();
             }
         }
 
         private void lnkRegister_Click(object sender, EventArgs e)
         {
+            if (!CanNavigate) return;
             using (FrmRegister frm = new FrmRegister())
             {
-                this.Hide();
-                frm.ShowDialog();
-                this.Show();
+                ShowAuthDialog(frm);
             }
         }
 
         private void lnkForgotPassword_Click(object sender, EventArgs e)
         {
+            if (!CanNavigate) return;
             using (FrmForgotPassword frm = new FrmForgotPassword())
             {
-                this.Hide();
-                frm.ShowDialog();
-                this.Show();
+                ShowAuthDialog(frm);
+            }
+        }
+
+        private void ShowAuthDialog(Form form)
+        {
+            Hide();
+            try
+            {
+                form.ShowDialog(this);
+            }
+            finally
+            {
+                // A completed session must never reveal this login form again.
+                if (CanNavigate) Show();
             }
         }
     }

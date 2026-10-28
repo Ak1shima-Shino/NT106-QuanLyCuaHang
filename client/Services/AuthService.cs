@@ -98,6 +98,11 @@ namespace RetailClient.Services
 
                 var result = JsonConvert.DeserializeObject<MeResponse>(body);
 
+                if (result == null || !result.Success || result.User == null)
+                {
+                    throw new Exception("Phản hồi thông tin người dùng không hợp lệ.");
+                }
+
                 return result;
             }
         }
